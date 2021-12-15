@@ -152,6 +152,7 @@ impl Board {
     /// Gets the score from the perspective of Player A (Yellow)
     /// Score is based on the number of consecutive pieces
     /// starting from (x,y) and up to (x+dx*3, y+dy*3), with (dx,dy) in range [-1,1].
+    /// Scoring function from https://github.com/gimu/connect-four-js is used as a guide.
     pub fn score(&self, x: usize, y: usize, dx: isize, dy: isize) -> isize {
         if let Some(GameOutcome::Winner(piece)) = self.outcome {
             return MAX_GAME_SCORE*piece.as_int();
