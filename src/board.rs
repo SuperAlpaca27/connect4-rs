@@ -1,4 +1,5 @@
 use std::fmt;
+use crossterm::style::Stylize;
 
 pub const MAX_GAME_SCORE: isize = 100000;
 
@@ -20,8 +21,8 @@ impl Piece {
 impl fmt::Display for Piece {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match *self {
-            Piece::Yellow => write!(f, "■"),
-            Piece::Red => write!(f, "●"),
+            Piece::Yellow => write!(f, "{}", "■".yellow()),
+            Piece::Red => write!(f, "{}", "●".red()),
         }
     }
 }
